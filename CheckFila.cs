@@ -8,7 +8,7 @@ namespace Sudoku
 {
     static class CheckFila
     {
-        static bool checkFila(int [] fila)  //recibe una fila y devuelve true si hay al menos una repeticion de numero
+        public static bool checkFila(int [,] matriz,int fila)  //recibe una fila y devuelve true si hay al menos una repeticion de numero
         {
             return true;
         }

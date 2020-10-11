@@ -10,6 +10,9 @@ namespace Sudoku
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Maxi gato");
+            Console.WriteLine("Bruno gato");
+            Console.ReadKey();
         }
     }
 }

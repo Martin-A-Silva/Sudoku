@@ -12,7 +12,9 @@ namespace Sudoku
         {
             Console.WriteLine("Maxi gato");
             Console.WriteLine("Bruno gato");
+            Console.WriteLine("Martin Gato");
             Console.ReadKey();
+
         }
     }
 }

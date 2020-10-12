@@ -35,6 +35,7 @@ namespace Sudoku
                         {
                             check = true;
                             fallos++;
+                            check = false;
                             /*for (int k = 0; k < 9; k++)
                             {
                                 for (int l = 0; l < 9; l++)

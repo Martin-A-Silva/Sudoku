@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace Sudoku
@@ -11,61 +10,89 @@ namespace Sudoku
     {
         static void Main(string[] args)
         {
-            int [,] matriz = new int [9,9];   //Primer casilla (i) son filas, segunda casilla (j) son columnas
+        
+            int[,] matriz = new int[9, 9];   //Primer casilla (i) son filas, segunda casilla (j) son columnas
+
+
             matriz = generarMatriz();
-            
+
             Console.ReadKey();
+            
         }
 
-        static int [,] generarMatriz(){
-            int [,] matriz = new int [9,9];
+        static int[,] generarMatriz()
+        {
+            int[,] matriz = new int[9, 9];
             int numero;
-            Random rnd = new Random();
-            bool check = false;
+            bool numeroColocado = true;
             int fallos = 0;
+            Random rnd = new Random();
+            List<int> numerosRestantesEnFila = new List<int> { };
+            List<int> numerosIntentadosEnCelda = new List<int> { };
+            IEnumerable<int> numerosRestantesEnCelda;
+            int[] defArr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
             for (int i = 0; i < 9; i++)
             {
-                InicioFila:
+            InicioFila:
+                numerosRestantesEnFila.AddRange(defArr);    //Reiniciamos la lista de números faltantes en la fila
                 for (int j = 0; j < 9; j++)
                 {
                     do
                     {
-                        numero = rnd.Next(1, 10);
-                        if (CheckColumna.checkColumna(matriz, j, numero) || CheckFila.checkFila(matriz, i, numero) || CheckSubMatriz.checkSubMatriz(matriz,i,j,numero))
+
+                        numerosRestantesEnCelda = numerosRestantesEnFila.Where(z => !numerosIntentadosEnCelda.Contains(z));          //Filtramos las numeros restantes en la fila con los ya intentados en la celda              
+                        numero = numerosRestantesEnCelda.ToList().ElementAt(rnd.Next(0, numerosRestantesEnCelda.ToList().Count));       //Elegimos aleatoriamente uno de los numeros filtrados
+
+                        if (CheckColumna.checkColumna(matriz, j, numero) || CheckFila.checkFila(matriz, i, numero) ||
+                            CheckSubMatriz.checkSubMatriz(matriz, i, j, numero) || numerosIntentadosEnCelda.Contains(numero))      //Evaluamos si el numero a colocar es válido
                         {
-                            check = true;
-                            fallos++;
-                            check = false;
-                            /*for (int k = 0; k < 9; k++)
+
+                            numeroColocado = false;
+                            numerosIntentadosEnCelda.Add(numero);
+
+                            if (numerosRestantesEnCelda.ToList().Count == 0)    //Cuando ya no quedan números por intentar, es imposible llenar la fila y hay que volver a llenarla, reini
                             {
-                                for (int l = 0; l < 9; l++)
+                                numerosIntentadosEnCelda.Clear();
+
+                                fallos++;                                       //Contador de fallas, si ocurre demasiado habrá que borrar 2 filas
+                                for (int k = 0; k < 9; k++)
                                 {
-                                    Console.Write(matriz[k, l] + " ");
+                                    matriz[i, k] = 0;
                                 }
-                                Console.WriteLine();
-                            }*/
+                                goto InicioFila;
+                            }
+
                         }
-                        else
+                        else            //Si es válido lo colocamos, quitamos el numero de los restantes, y reiniciamos los numeros intentados
                         {
-                            fallos = 0;
                             matriz[i, j] = numero;
-                            check = false;
+                            numerosRestantesEnFila.Remove(numero);
+                            numerosIntentadosEnCelda.Clear();
+
+                            numeroColocado = true;
                         }
-                        if (fallos > 20)
+                        if (fallos > 20)        //Para cuando la fila es imposible de llenar, se borran 2 filas. La cantidad de fallos es arbitraria
                         {
-                            for(int k=0; k < 9; k++)
+                            numerosRestantesEnFila.Clear();
+                            numerosIntentadosEnCelda.Clear();
+                            for (int k = 0; k < 9; k++)
                             {
                                 matriz[i, k] = 0;
+                                matriz[i - 1, k] = 0;
                             }
                             fallos = 0;
+                            i--;
                             goto InicioFila;
                         }
-                    } while (check == true);
-                    
+                    } while (numeroColocado == false);
+
 
                 }
+
             }
-            Console.WriteLine("Matriz final:");
+
+            Console.WriteLine("Matriz generada:");
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
@@ -74,20 +101,9 @@ namespace Sudoku
                 }
                 Console.WriteLine();
             }
-            
+
             return matriz;
         }
-        
 
-
-        /*static void checkSubMatriz(int [][] matriz){    //recibe matriz de 3x3 y se fija si hay numeros repetidos
-
-        }*/
-
-        /*static void checkFila(int [] fila){     
-        }
-
-        static void checkColumna(int [] columna){   //recibe un array y se fija si hay numeros repetidos
-        }*/
     }
 }

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sudoku
+﻿namespace Sudoku
 {
     static class CheckColumna
     {
-        public static bool checkColumna(int[,] matriz,int columna,int numero)  //recibe una columna y devuelve true si hay al menos una repeticion de numero
+        public static bool checkColumna(int[,] matriz, int columna, int numero)  //recibe una columna y devuelve true si hay al menos una repeticion de numero
         {
             for (int i = 0; i < 9; i++)
             {

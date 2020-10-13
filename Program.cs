@@ -16,6 +16,20 @@ namespace Sudoku
 
             matriz = generarMatriz();
 
+            Console.WriteLine();
+
+            matriz = Dificulty.SelecDif(matriz, 1);
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    Console.Write(matriz[i, j] + " ");
+                }
+
+                Console.WriteLine();
+
+            }
             Console.ReadKey();
             
         }

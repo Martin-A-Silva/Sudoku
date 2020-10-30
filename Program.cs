@@ -20,14 +20,13 @@ namespace Sudoku
             InitializeComponent();
             
 
-            generarMatriz(matriz);
-
+            generarMatriz(matriz);  //NO BORRAR
             
-            SelecDif(matriz, 1);  //Esto va en el boton de juego nuevo
+            SelecDif(matriz, 1);  //Esto va en el boton de juego nuevo, está acá por motivos de testeo, borrar cuando esté implementado el botón
 
-            SudokuCell[,] cells = new SudokuCell[9, 9];
-            
-            createCells(cells,panel1);
+
+            SudokuCell[,] cells = new SudokuCell[9, 9];   //NO BORRAR         
+            createCells(cells,panel1);  //NO BORRAR
             
             
             

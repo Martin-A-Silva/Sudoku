@@ -3,16 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Sudoku
 {
 
-    static class Dificulty
+    public partial class Program : Form
     {
 
-        public static int[,] SelecDif(int[,] matriz, int dificulty) 
+        public int[,] SelecDif(int[,] matriz, int dificulty) 
         {
             int maxNum = 0;
             int contador = 0;
@@ -59,6 +61,6 @@ namespace Sudoku
 
             return matriz;
         }
-    
+        
     }
 }

@@ -50,11 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckColumna.cs" />
-    <Compile Include="CheckSubMatriz.cs" />
-    <Compile Include="CheckFila.cs" />
-    <Compile Include="Generador.cs" />
-    <Compile Include="Dificulty.cs" />
+    <Compile Include="CheckColumna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckSubMatriz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckFila.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SudokuCell.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Generador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dificulty.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs">
       <SubType>Form</SubType>
     </Compile>

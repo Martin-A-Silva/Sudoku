@@ -1,9 +1,11 @@
-﻿namespace Sudoku
+﻿using System.Windows.Forms;
+
+namespace Sudoku
 {
-    static class CheckSubMatriz
+    public partial class Program : Form
     {
 
-        public static bool checkSubMatriz(int[,] matriz, int fila, int col, int numero) // recibe una matriz 9x9 y revisa que no se repitan numeros en las submatrices, si hay al menos una repeticion devuelve true
+        public bool checkSubMatriz(int[,] matriz, int fila, int col, int numero) // recibe una matriz 9x9 y revisa que no se repitan numeros en las submatrices, si hay al menos una repeticion devuelve true
         {
             int imin, imax, jmin, jmax;
             imin = (fila / 3) * 3;

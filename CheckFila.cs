@@ -1,8 +1,10 @@
-﻿namespace Sudoku
+﻿using System.Windows.Forms;
+
+namespace Sudoku
 {
-    static class CheckFila
+    public partial class Program : Form
     {
-        public static bool checkFila(int[,] matriz, int fila, int numero)  //recibe una fila y devuelve true si hay al menos una repeticion de numero
+        public bool checkFila(int[,] matriz, int fila, int numero)  //recibe una fila y devuelve true si hay al menos una repeticion de numero
         {
             for (int i = 0; i < 9; i++)
             {

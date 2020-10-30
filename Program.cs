@@ -13,7 +13,7 @@ namespace Sudoku
         private Button JuegoNuevoBtn;
         private Button MosSolBtn;
         private int[,] matriz = new int[9, 9];
-        //private int[,] matrizNoSol = new int[9, 9];
+        private int[,] matrizSol = new int[9, 9];
 
         public Program()
         {
@@ -21,7 +21,7 @@ namespace Sudoku
             
 
             generarMatriz(matriz);  //NO BORRAR
-            
+            matrizSol = (int[,])matriz.Clone();     //NO BORRAR
             SelecDif(matriz, 1);  //Esto va en el boton de juego nuevo, está acá por motivos de testeo, borrar cuando esté implementado el botón
 
 
@@ -40,17 +40,17 @@ namespace Sudoku
                 Console.WriteLine();
 
             }
-            /*Console.WriteLine("nosol");
+            Console.WriteLine("solucion:");
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    Console.Write(matrizNoSol[i, j] + " ");
+                    Console.Write(matrizSol[i, j] + " ");
                 }
 
                 Console.WriteLine();
 
-            }*/
+            }
         }
 
         static void Main(string[] args)

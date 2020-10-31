@@ -104,6 +104,8 @@ namespace Sudoku
                     cells[i, j].X = i;
                     cells[i, j].Y = j;
 
+
+
                     // Assign key press event for each cells
                     cells[i, j].KeyPress += cell_keyPressed;
 

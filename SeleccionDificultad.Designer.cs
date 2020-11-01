@@ -42,20 +42,19 @@
             this.groupBox1.Controls.Add(this.optDificultadNormal);
             this.groupBox1.Controls.Add(this.optDificultadFacil);
             this.groupBox1.Location = new System.Drawing.Point(25, 21);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(124, 112);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // optDificultadDificil
             // 
             this.optDificultadDificil.AutoSize = true;
             this.optDificultadDificil.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optDificultadDificil.Location = new System.Drawing.Point(4, 61);
-            this.optDificultadDificil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.optDificultadDificil.Margin = new System.Windows.Forms.Padding(2);
             this.optDificultadDificil.Name = "optDificultadDificil";
             this.optDificultadDificil.Size = new System.Drawing.Size(50, 17);
             this.optDificultadDificil.TabIndex = 3;
@@ -67,38 +66,36 @@
             // 
             this.optDificultadNormal.AutoSize = true;
             this.optDificultadNormal.Location = new System.Drawing.Point(4, 39);
-            this.optDificultadNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.optDificultadNormal.Margin = new System.Windows.Forms.Padding(2);
             this.optDificultadNormal.Name = "optDificultadNormal";
             this.optDificultadNormal.Size = new System.Drawing.Size(58, 17);
             this.optDificultadNormal.TabIndex = 2;
             this.optDificultadNormal.TabStop = true;
             this.optDificultadNormal.Text = "Normal";
             this.optDificultadNormal.UseVisualStyleBackColor = true;
-            this.optDificultadNormal.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // optDificultadFacil
             // 
             this.optDificultadFacil.AutoSize = true;
             this.optDificultadFacil.Location = new System.Drawing.Point(4, 17);
-            this.optDificultadFacil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.optDificultadFacil.Margin = new System.Windows.Forms.Padding(2);
             this.optDificultadFacil.Name = "optDificultadFacil";
             this.optDificultadFacil.Size = new System.Drawing.Size(47, 17);
             this.optDificultadFacil.TabIndex = 1;
             this.optDificultadFacil.TabStop = true;
             this.optDificultadFacil.Text = "Facil";
             this.optDificultadFacil.UseVisualStyleBackColor = true;
-            this.optDificultadFacil.CheckedChanged += new System.EventHandler(this.SeleccionDificultad_Load);
             // 
             // btnJugar
             // 
             this.btnJugar.Location = new System.Drawing.Point(47, 138);
-            this.btnJugar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJugar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJugar.Name = "btnJugar";
             this.btnJugar.Size = new System.Drawing.Size(76, 40);
             this.btnJugar.TabIndex = 2;
             this.btnJugar.Text = "Jugar";
             this.btnJugar.UseVisualStyleBackColor = true;
-            this.btnJugar.Click += new System.EventHandler(this.button1_Click);
+            this.btnJugar.Click += new System.EventHandler(this.Jugar_Click);
             // 
             // SeleccionDificultad
             // 
@@ -108,13 +105,12 @@
             this.Controls.Add(this.btnJugar);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SeleccionDificultad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dificultad";
-            this.Load += new System.EventHandler(this.SeleccionDificultad_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

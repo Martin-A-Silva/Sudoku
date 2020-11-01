@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
+using System.Drawing;
 
 namespace Sudoku
 {
@@ -11,7 +12,7 @@ namespace Sudoku
     {
         private Panel panel1;
         private Button JuegoNuevoBtn;
-        private Button MosSolBtn;
+        private Button MosPistaBtn;
         private int[,] matriz = new int[9, 9];
         private int[,] matrizSol = new int[9, 9];
         private SudokuCell[,] cells;
@@ -24,7 +25,7 @@ namespace Sudoku
 
             createCells(cells, panel1);  //NO BORRAR        
 
-            Generar(2);
+            generarPartida(2);
 
         }
 
@@ -51,7 +52,7 @@ namespace Sudoku
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.JuegoNuevoBtn = new System.Windows.Forms.Button();
-            this.MosSolBtn = new System.Windows.Forms.Button();
+            this.MosPistaBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,20 +72,20 @@ namespace Sudoku
             this.JuegoNuevoBtn.UseVisualStyleBackColor = true;
             this.JuegoNuevoBtn.Click += new System.EventHandler(this.JuegoNuevoBtn_Click);
             // 
-            // MosSolBtn
+            // MosPistaBtn
             // 
-            this.MosSolBtn.Location = new System.Drawing.Point(196, 394);
-            this.MosSolBtn.Name = "MosSolBtn";
-            this.MosSolBtn.Size = new System.Drawing.Size(114, 31);
-            this.MosSolBtn.TabIndex = 2;
-            this.MosSolBtn.Text = "Mostrar Solución";
-            this.MosSolBtn.UseVisualStyleBackColor = true;
-            this.MosSolBtn.Click += new System.EventHandler(this.MosSolBtn_Click);
+            this.MosPistaBtn.Location = new System.Drawing.Point(196, 394);
+            this.MosPistaBtn.Name = "MosPistaBtn";
+            this.MosPistaBtn.Size = new System.Drawing.Size(114, 31);
+            this.MosPistaBtn.TabIndex = 2;
+            this.MosPistaBtn.Text = "Mostrar Pista";
+            this.MosPistaBtn.UseVisualStyleBackColor = true;
+            this.MosPistaBtn.Click += new System.EventHandler(this.MosSolBtn_Click);
             // 
             // Program
             // 
             this.ClientSize = new System.Drawing.Size(385, 458);
-            this.Controls.Add(this.MosSolBtn);
+            this.Controls.Add(this.MosPistaBtn);
             this.Controls.Add(this.JuegoNuevoBtn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -92,7 +93,6 @@ namespace Sudoku
             this.Name = "Program";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sudoku 3000";
-            this.Load += new System.EventHandler(this.Program_Load);
             this.ResumeLayout(false);
 
         }
@@ -108,65 +108,26 @@ namespace Sudoku
             SeleccionDificultad form1 = new SeleccionDificultad();
             int dificultad = form1.EligeDificultad();
 
-            matriz = new int[9, 9];
-            matrizSol = new int[9, 9];
+            if (dificultad != 0)
+            {
+                matriz = new int[9, 9];
+                matrizSol = new int[9, 9];
 
-            Generar(dificultad);
+                generarPartida(dificultad);
+            }
+
+            
 
         }
 
         private void MosSolBtn_Click(object sender, EventArgs e)
         {
-            /* Tiene que reemplazar lo que esté en el panel (matrizNoSol)
-             * por la matriz solucion (matrizSol)
+            /* Tiene que llenar al azar una celda correctamente,
+             * poniendo un valor de la matrizSol en su celda vacía correspondiente
              */
         }
 
-        private void Program_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Generar(int dificultad)
-        {
-            Console.WriteLine(dificultad);
-            // SelecDif(matriz, dificultad);
-            generarMatriz(matriz);  //NO BORRAR
-            matrizSol = (int[,])matriz.Clone();     //NO BORRAR
-            SelecDif(matriz, dificultad);  // Esto va en el boton de juego nuevo, está acá por motivos de testeo, borrar cuando esté implementado el botón
-
- 
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    cells[j, i].Text = matriz[i, j] == 0 ? "" : matriz[i, j].ToString();
-                    cells[j, i].Enabled = (matriz[i, j] == 0);
-                    Console.Write(matriz[i, j] + " ");
-
-
-                }
-
-                Console.WriteLine();
-
-            }
-            Console.WriteLine("solucion:");
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write(matrizSol[i, j] + " ");
-                }
-
-                Console.WriteLine();
-
-            }
-
-            panel1.Refresh();
-
-            
-
- 
-        }
+        
     }
 }

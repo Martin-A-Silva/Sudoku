@@ -12,15 +12,10 @@ namespace Sudoku
 {
     public partial class SeleccionDificultad : Form
     {
-        private int dificultad = 0;
+        private int dificultad = 2;
         public SeleccionDificultad()
         {
             InitializeComponent();
-        }
-
-        private void SeleccionDificultad_Load(object sender, EventArgs e)
-        {
-
         }
 
         public int EligeDificultad()
@@ -33,7 +28,7 @@ namespace Sudoku
             return this.dificultad;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Jugar_Click(object sender, EventArgs e)
         {
 
             if (optDificultadFacil.Checked)
@@ -52,14 +47,5 @@ namespace Sudoku
             this.Close();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

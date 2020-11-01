@@ -86,84 +86,42 @@ namespace Sudoku
             
         }
 
-        private void createCells(SudokuCell[,] cells,Panel panel1)
+        private void generarPartida(int dificultad)
         {
+            
+            generarMatriz(matriz);
+            matrizSol = (int[,])matriz.Clone();
+            SelecDif(matriz, dificultad);
+
+
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    // Create 81 cells for with styles and locations based on the index
-                    cells[i, j] = new SudokuCell();
-                    cells[i, j].Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
-                    cells[i, j].Size = new Size(40, 40);
-                    cells[i, j].ForeColor = SystemColors.ControlDarkDark;
-                    cells[i, j].Location = new Point(i * 40, j * 40);
-                    cells[i, j].BackColor = ((i / 3) + (j / 3)) % 2 == 0 ? SystemColors.Control : Color.LightGray;
-                    cells[i, j].FlatStyle = FlatStyle.Flat;
-                    cells[i, j].FlatAppearance.BorderColor = Color.Black;
-                    cells[i, j].X = i;
-                    cells[i, j].Y = j;
+                    cells[j, i].Text = matriz[i, j] == 0 ? "" : matriz[i, j].ToString();
+                    cells[j, i].Enabled = (matriz[i, j] == 0);
+                    Console.Write(matriz[i, j] + " ");
 
 
-
-                    // Assign key press event for each cells
-                    cells[i, j].KeyPress += cell_keyPressed;
-
-                    panel1.Controls.Add(cells[i,j]);
                 }
+
+                Console.WriteLine();
+
             }
-        }
-
-        private void cell_keyPressed(object sender, KeyPressEventArgs e)
-        {
-            var cell = sender as SudokuCell;
-
-            // Do nothing if the cell is locked
-            if (cell.IsLocked)
-                return;
-
-            int value;
-
-
-
-            // Add the pressed key value in the cell only if it is a number
-            if (int.TryParse(e.KeyChar.ToString(), out value))                  //ACÁ SE TIENEN QUE EJECUTAR LOS MÉTODOS DE CHEQUEO TAMBIÉN
+            Console.WriteLine("solucion:");
+            for (int i = 0; i < 9; i++)
             {
-                // Clear the cell value if pressed key is zero
-
-                if (value == 0)
+                for (int j = 0; j < 9; j++)
                 {
-                    cell.Clear();
-                    matriz[cell.X, cell.Y] = value;
+                    Console.Write(matrizSol[i, j] + " ");
                 }
-                else
-                {
-                    cell.Text = value.ToString();
 
-
-                    if (checkColumna(matriz, cell.X, value))
-                    {
-                        cell.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        matriz[cell.X, cell.Y] = value;
-                        cell.ForeColor = SystemColors.ControlDarkDark;
-                    }
-                }
-                
+                Console.WriteLine();
 
             }
 
+            panel1.Refresh();
 
-            /*if (!checkColumna || checkFila || checkSubMatriz)
-            {
-                cell.ForeColor = Color.Red;
-            }
-            else if (checkMatrizCompleta)
-            {
-                //cartel de partida ganada
-            }*/
         }
     }
 }

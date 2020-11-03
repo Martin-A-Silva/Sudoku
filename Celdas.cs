@@ -72,7 +72,26 @@ namespace Sudoku
                     else
                     {
                         matriz[cell.Y, cell.X] = value;
-                        cell.ForeColor = SystemColors.ControlDarkDark;
+                        cell.ForeColor = SystemColors.ControlText;
+                    }
+
+                    if (checkFila(matriz, cell.Y, value))
+                    {
+                        cell.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        matriz[cell.Y, cell.X] = value;
+                        cell.ForeColor = SystemColors.ControlText;
+                    }
+                    if (checkSubMatriz(matriz, cell.Y, cell.X, value))
+                    {
+                        cell.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        matriz[cell.Y, cell.X] = value;
+                        cell.ForeColor = SystemColors.ControlText;
                     }
                 }
 

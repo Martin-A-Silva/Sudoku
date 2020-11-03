@@ -65,7 +65,7 @@ namespace Sudoku
                     cell.Text = value.ToString();
 
 
-                    if (checkColumna(matriz, cell.X, value))
+                    if (checkColumna(matriz, cell.X, value) || (checkFila(matriz, cell.Y, value)) || (checkSubMatriz(matriz, cell.Y, cell.X, value)))
                     {
                         cell.ForeColor = Color.Red;
                     }
@@ -74,25 +74,7 @@ namespace Sudoku
                         matriz[cell.Y, cell.X] = value;
                         cell.ForeColor = SystemColors.ControlText;
                     }
-
-                    if (checkFila(matriz, cell.Y, value))
-                    {
-                        cell.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        matriz[cell.Y, cell.X] = value;
-                        cell.ForeColor = SystemColors.ControlText;
-                    }
-                    if (checkSubMatriz(matriz, cell.Y, cell.X, value))
-                    {
-                        cell.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        matriz[cell.Y, cell.X] = value;
-                        cell.ForeColor = SystemColors.ControlText;
-                    }
+                   
                 }
 
 

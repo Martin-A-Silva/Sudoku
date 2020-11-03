@@ -24,15 +24,15 @@ namespace Sudoku
 
             if (dificulty == 1)
             {
-                maxNum = 30;
+                maxNum = 32;
             }
             else if (dificulty == 2)
             {
-                maxNum = 40;
+                maxNum = 41;
             }
             else if (dificulty == 3)
             {
-                maxNum = 50;
+                maxNum = 53;
             }else{
                 Console.WriteLine("La dificultad ingresada no es valida.");
             }

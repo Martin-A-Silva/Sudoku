@@ -126,8 +126,5 @@ namespace Sudoku
              * poniendo un valor de la matrizSol en su celda vacía correspondiente
              */
         }
-
-
-        
     }
-}
+    }

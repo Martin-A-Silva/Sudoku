@@ -56,12 +56,6 @@
     <Compile Include="CheckColumna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CheckMatriz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheckMatriz.Designer.cs">
-      <DependentUpon>CheckMatriz.cs</DependentUpon>
-    </Compile>
     <Compile Include="CheckSubMatriz.cs">
       <SubType>Form</SubType>
     </Compile>

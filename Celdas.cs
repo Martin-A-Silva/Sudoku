@@ -90,7 +90,10 @@ namespace Sudoku
                 Console.WriteLine();
             }
 
-
+            if(checkFin(matriz) == true)
+            {
+                MessageBox.Show("Felicidades ha completado correctamente el juego", "Fin", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
             /*if (!checkColumna || checkFila || checkSubMatriz)
             {
                 cell.ForeColor = Color.Red;

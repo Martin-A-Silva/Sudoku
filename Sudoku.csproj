@@ -56,13 +56,18 @@
     <Compile Include="CheckColumna.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CheckFin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CheckSubMatriz.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CheckFila.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pista.cs" />
+    <Compile Include="Pista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SeleccionDificultad.cs">
       <SubType>Form</SubType>
     </Compile>

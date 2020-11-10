@@ -125,6 +125,7 @@ namespace Sudoku
             /* Tiene que llenar al azar una celda correctamente,
              * poniendo un valor de la matrizSol en su celda vacía correspondiente
              */
+            Pista();
         }
     }
     }

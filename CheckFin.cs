@@ -4,7 +4,7 @@ namespace Sudoku
 {
     public partial class Program : Form 
     {
-        public bool checkFin(int[,] matriz)
+        public bool checkFin()
         {
             for (int i = 0; i < 9; i++)
             {

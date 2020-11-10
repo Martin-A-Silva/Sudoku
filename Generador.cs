@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -86,12 +88,18 @@ namespace Sudoku
             
         }
 
+  
+      
+        
+
         private void generarPartida(int dificultad)
         {
             
             generarMatriz(matriz);
             matrizSol = (int[,])matriz.Clone();
             SelecDif(matriz, dificultad);
+     
+
 
 
             for (int i = 0; i < 9; i++)

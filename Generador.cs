@@ -99,37 +99,18 @@ namespace Sudoku
             matrizSol = (int[,])matriz.Clone();
             SelecDif(matriz, dificultad);
      
-
-
-
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
                     cells[j, i].Text = matriz[i, j] == 0 ? "" : matriz[i, j].ToString();
+                    cells[j, i].Value = matriz[i, j];
                     cells[j, i].Enabled = (matriz[i, j] == 0);
-                    Console.Write(matriz[i, j] + " ");
-
-
+                    
                 }
 
-                Console.WriteLine();
-
-            }
-            Console.WriteLine("solucion:");
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write(matrizSol[i, j] + " ");
-                }
-
-                Console.WriteLine();
-
-            }
-
+            }            
             panel1.Refresh();
-
         }
     }
 }

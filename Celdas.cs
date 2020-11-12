@@ -16,7 +16,7 @@ namespace Sudoku
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    // Create 81 cells for with styles and locations based on the index
+
                     cells[i, j] = new SudokuCell();
                     cells[i, j].Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
                     cells[i, j].Size = new Size(40, 40);
@@ -27,13 +27,10 @@ namespace Sudoku
                     cells[i, j].FlatAppearance.BorderColor = Color.Black;
                     cells[i, j].X = i;
                     cells[i, j].Y = j;
-
-
-
-                    // Assign key press event for each cells
                     cells[i, j].KeyPress += cell_keyPressed;
 
                     panel1.Controls.Add(cells[i, j]);
+
                 }
             }
         }
@@ -42,28 +39,23 @@ namespace Sudoku
         {
             var cell = sender as SudokuCell;
 
-            
             if (cell.IsLocked)
                 return;
 
             int value;
 
-
-
-            
             if (int.TryParse(e.KeyChar.ToString(), out value))                  //ACÁ SE TIENEN QUE EJECUTAR LOS MÉTODOS DE CHEQUEO TAMBIÉN
             {
-                
 
                 if (value == 0)
                 {
                     cell.Clear();
-                    matriz[cell.Y, cell.X] = value;
+                    matriz[cell.Y, cell.X] = value;                    
+                    cell.Value = 0;                    
                 }
                 else
                 {
                     cell.Text = value.ToString();
-
 
                     if (checkColumna(matriz, cell.X, value) || (checkFila(matriz, cell.Y, value)) || (checkSubMatriz(matriz, cell.Y, cell.X, value)))
                     {
@@ -71,30 +63,18 @@ namespace Sudoku
                     }
                     else
                     {
-                        matriz[cell.Y, cell.X] = value;
+                        matriz[cell.Y, cell.X] = value;                        
+                        cell.Value = value;                        
                         cell.ForeColor = SystemColors.ControlText;
                     }
-                   
+
                 }
-
-
             }
 
-            Console.WriteLine();
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {                    
-                    Console.Write(matriz[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-
-            if(checkFin() == true)
+            if (checkFin() == true)
             {
                 MessageBox.Show("Felicidades ha completado correctamente el juego", "Fin", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-        
         }
     }
 }

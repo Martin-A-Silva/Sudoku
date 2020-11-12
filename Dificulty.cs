@@ -14,7 +14,7 @@ namespace Sudoku
     public partial class Program : Form
     {
 
-        public int[,] SelecDif(int[,] matriz, int dificulty) 
+        public int[,] SelecDif(int[,] matriz, int dificulty)
         {
             int maxNum = 0;
             int contador = 0;
@@ -33,34 +33,37 @@ namespace Sudoku
             else if (dificulty == 3)
             {
                 maxNum = 53;
-            }else{
+            }
+            else
+            {
                 Console.WriteLine("La dificultad ingresada no es valida.");
             }
 
-            while(contador < maxNum) {
-                    for (int fila = 0; fila < 9; fila++)
+            while (contador < maxNum)
+            {
+                for (int fila = 0; fila < 9; fila++)
+                {
+                    for (int columna = 0; columna < 9; columna++)
                     {
-                        for (int columna = 0; columna < 9; columna++)
+
+                        if (aux < maxNum)
                         {
+                            aux2 = rnd.Next(1, 5);
 
-                            if (aux < maxNum)
+                            if (aux2 == 1)
                             {
-                                aux2 = rnd.Next(1, 5);
 
-                                if (aux2 == 1)
-                                {
-
-                                    matriz[fila, columna] = 0;
-                                    aux++;
-                                    contador++;
-                                }
+                                matriz[fila, columna] = 0;
+                                aux++;
+                                contador++;
                             }
                         }
                     }
+                }
             }
 
             return matriz;
         }
-        
+
     }
 }

@@ -31,20 +31,10 @@ namespace Sudoku
 
         static void Main(string[] args)
         {
-        
-            
-            
-            
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Program());
-
-            Console.WriteLine();
-
-            
-
-            //Console.ReadKey();
 
         }
 
@@ -112,11 +102,8 @@ namespace Sudoku
             {
                 matriz = new int[9, 9];
                 matrizSol = new int[9, 9];
-
                 generarPartida(dificultad);
             }
-
-            
 
         }
 
@@ -128,4 +115,4 @@ namespace Sudoku
             Pista();
         }
     }
-    }
+}

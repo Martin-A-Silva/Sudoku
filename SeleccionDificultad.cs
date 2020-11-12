@@ -12,7 +12,7 @@ namespace Sudoku
 {
     public partial class SeleccionDificultad : Form
     {
-        private int dificultad = 2;
+        private int dificultad = 0;
         public SeleccionDificultad()
         {
             InitializeComponent();
@@ -34,15 +34,15 @@ namespace Sudoku
             if (optDificultadFacil.Checked)
             {
                 this.dificultad = 1;
-            } else if (optDificultadNormal.Checked)
+            }
+            else if (optDificultadNormal.Checked)
             {
                 this.dificultad = 2;
-            } else if (optDificultadDificil.Checked)
+            }
+            else if (optDificultadDificil.Checked)
             {
                 this.dificultad = 3;
             }
-
-
 
             this.Close();
         }
